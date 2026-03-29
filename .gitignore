@@ -26,3 +26,14 @@ Thumbs.db
 
 # Skill packaging artifacts
 *.skill
+
+# Skill-creator internals (not part of the Sophia skill)
+/agents/
+/assets/
+/eval-viewer/
+/scripts/
+/references/
+/SKILL.md
+
+# Local Claude Code settings
+.claude/
