@@ -1,0 +1,10 @@
+# Exclude dev tooling from GitHub ZIP downloads.
+# Users downloading the ZIP only get the project-mentor/ skill folder.
+/SKILL.md export-ignore
+/agents/ export-ignore
+/assets/ export-ignore
+/eval-viewer/ export-ignore
+/scripts/ export-ignore
+/references/ export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
