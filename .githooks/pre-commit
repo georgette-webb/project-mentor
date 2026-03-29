@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Blocks commits when project-mentor/ and .claude/skills/project-mentor/ have diverged.
+# Enable with: git config core.hooksPath .githooks
+
+bash "$(git rev-parse --show-toplevel)/scripts/check-skill-sync.sh"

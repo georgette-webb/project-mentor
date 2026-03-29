@@ -30,7 +30,7 @@ Each session runs a structured 6-step workflow:
 2. **Inspects the codebase** — reads git diff and touched files directly; asks for code if no repo access rather than reconstructing assumptions
 3. **Teaches the implementation** — depth matched to how you're engaging (see modes below)
 4. **Writes an executive summary** — Done / Why / Result / Next, under 100 words
-5. **Produces documentation** — feature doc in `docs/features/`, changelog entry in `docs/changes.md`
+5. **Produces documentation** — feature doc in `docs/features/`, changelog entry in `docs/changes.md` (skipped in Learn fast mode unless you ask)
 6. **Surfaces supporting context** — risks, open questions, rollout concerns, testing gaps
 
 Sophia signs off every session with a single focused next-step recommendation.
@@ -41,11 +41,11 @@ Sophia signs off every session with a single focused next-step recommendation.
 
 Sophia infers one of three modes from your prompt — she never asks:
 
-| Mode             | When                                                             | What you get                                                                                                      |
-| ---------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Learn deeply** | "walk me through", "explain", "help me understand the tradeoffs" | Full teaching stack: before/after, named pattern, mental model, how to spot it again, failure modes, testing lens |
-| **Learn fast**   | Short message, casual tone, "quick question"                     | Compressed: what it does, pattern name, one key risk, brief testing lens                                          |
-| **Capture only** | "just document this", "log this change"                          | Skips all teaching — goes straight to summary card and docs                                                       |
+| Mode             | When                                                             | What you get                                                                                                                      |
+| ---------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Learn deeply** | "walk me through", "explain", "help me understand the tradeoffs" | Full teaching stack: before/after, named pattern, trade-off made, mental model, how to spot it again, failure modes, testing lens |
+| **Learn fast**   | Short message, casual tone, "quick question"                     | Compressed: what it does, pattern name, one key risk, brief testing lens                                                          |
+| **Capture only** | "just document this", "log this change"                          | Skips all teaching — goes straight to summary card and docs                                                                       |
 
 \---
 
@@ -53,11 +53,11 @@ Sophia infers one of three modes from your prompt — she never asks:
 
 Sophia will not reconstruct a likely implementation when she has no access to your code. If there is no git repo or no files were provided, she asks one clarifying question first:
 
-> \*"I don't have access to the codebase or git history for this session. Before I continue, can you share the relevant file(s) or paste the key code?"\*
+> \*"Sophia doesn't have access to the codebase or git history for this session. Before continuing, can you share the relevant file(s) or paste the key code?"\*
 
 If you explicitly say to proceed from your description only, she will — but marks every inferred detail as unverified and never presents assumptions as facts.
 
-Confidence is shown at the top of each response: 🟢 High · 🟡 Medium · 🔴 Low.
+Confidence is shown at the top of each response: 🟢 [HIGH] · 🟡 [MEDIUM] · 🔴 [LOW].
 
 \---
 
