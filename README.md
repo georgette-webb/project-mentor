@@ -84,6 +84,22 @@ Learning mode teaches you _while_ you work. Sophia captures and reinforces _what
 
 \---
 
+## Installation
+
+Download `project-mentor.skill` from the [Releases](../../releases) page and install it in Claude Code:
+
+```bash
+claude skill install project-mentor.skill
+```
+
+Or clone this repo and install directly:
+
+```bash
+claude skill install project-mentor/
+```
+
+\---
+
 ## Files
 
 ```
