@@ -1,19 +1,19 @@
 # Documentation Templates
 
-Use these templates exactly as shown. Fill in every field; do not leave placeholder text in the output.
+Use these templates exactly as shown. Fill in every field — do not leave placeholder text in the final output.
 
 ---
 
-## Feature doc template
+## Feature doc
 
-Save to: `docs/features/<kebab-case-name>.md`
+**Save to:** `docs/features/<kebab-case-name>.md`
 
 ```markdown
 # <Feature Name>
 
 **Type:** <Feature | Bugfix | Refactor | Integration | Config/Infra>
 **Date:** <YYYY-MM-DD>
-**Author:** <name or "unknown" if not determinable>
+**Author:** <name, or "unknown" if not determinable>
 
 ## Summary
 
@@ -21,7 +21,7 @@ Save to: `docs/features/<kebab-case-name>.md`
 
 ## What changed
 
-<Bullet list of the concrete changes: files modified, functions added/removed, behaviors altered. Be specific — include function names, file paths, config keys, etc.>
+<Bullet list of concrete changes: files modified, functions added/removed, behaviours altered. Be specific — include function names, file paths, config keys, etc.>
 
 ## Pattern
 
@@ -31,24 +31,22 @@ Save to: `docs/features/<kebab-case-name>.md`
 
 ## How it works
 
-<Step-by-step walkthrough of the new behavior or structure. Use numbered steps if there is a clear sequence; use prose if it is structural rather than sequential.>
+<Step-by-step walkthrough of the new behaviour or structure. Use numbered steps if there is a clear sequence; use prose if it is structural rather than sequential.>
 
 ## Risks and considerations
 
-<Bullet list of known risks, edge cases, or decisions that may need revisiting. Write "None identified" if genuinely nothing stands out — but only if you have high confidence in your evidence.>
+<Bullet list of known risks, edge cases, or decisions that may need revisiting. Write "None identified" only if you have high confidence in your evidence.>
 
 ## Testing
 
-<What should be verified to have confidence this works correctly. Focus on behavior, not just coverage. If tests were added as part of this change, note what they check.>
+<What should be verified to have confidence this works correctly. Focus on behaviour, not just coverage. If tests were added as part of this change, note what they check.>
 ```
 
 ---
 
-## Changelog entry template
+## Changelog entry
 
-Append to: `docs/changes.md`
-
-Each entry follows this format:
+**Append to:** `docs/changes.md`
 
 ```markdown
 ## <YYYY-MM-DD> — <Short title (5–10 words)>
@@ -60,7 +58,7 @@ Each entry follows this format:
 **Files changed:** `<file1>`, `<file2>`, `<file3>`
 ```
 
-### Example (do not copy verbatim — replace with actual content)
+**Example** (do not copy verbatim — replace with actual content):
 
 ```markdown
 ## 2026-03-15 — Add token refresh retry on 401 responses
@@ -76,8 +74,10 @@ Implemented an Axios response interceptor that detects 401 errors, attempts a si
 
 ## Notes on filling these templates
 
-- **Dates:** Use `YYYY-MM-DD` format. If not determinable from git, use today's date.
-- **File paths:** Use paths relative to the project root.
-- **Pattern name:** Pick the most precise name. If the pattern is a well-known one (GoF, enterprise patterns, distributed systems patterns), use that name so the developer can search for it.
-- **Risks:** Be honest. A short list of real risks is more valuable than a reassuring "no risks identified" when you cannot be certain.
-- **Do not leave template placeholders** (`<like this>`) in the final output. Every angle-bracket field must be replaced with real content.
+| Field | Rule |
+| ----- | ---- |
+| **Dates** | Use `YYYY-MM-DD` format. If not determinable from git, use today's date. |
+| **File paths** | Use paths relative to the project root. |
+| **Pattern name** | Pick the most precise name. If it's a well-known pattern (GoF, enterprise, distributed systems), use that name so the developer can search for it. |
+| **Risks** | Be honest. A short list of real risks is more valuable than a reassuring "no risks identified" when you cannot be certain. |
+| **Placeholders** | Do not leave `<like this>` in the final output. Every angle-bracket field must be replaced with real content. |
