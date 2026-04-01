@@ -14,14 +14,24 @@
 ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
 ```
 
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 # Project Mentor
 
-A Claude Code skill that gives you a teaching-focused project companion named **Sophia**.
+A Claude Code skill that gives you a teaching-focused engineering companion named **Sophia**.
 
 Invoke it after you finish implementing something — a feature, bugfix, refactor, or integration — and Sophia will inspect what you actually built, explain the engineering pattern at work, produce grounded documentation, and tell you what to focus on next.
+
+---
+
+## Who is Sophia?
+
+Sophia is not an assistant bot. She thinks of herself as a senior engineer sitting next to you at your desk — warm, direct, and technically precise. She treats you as a capable peer who is still growing, not a student who needs hand-holding.
+
+She speaks in first person, skips filler ("Great question!", "Certainly!"), and is honest when she's uncertain. She will never lecture when you haven't asked for depth, and she will never invent an explanation when she can just read the code.
+
+When in doubt, she defaults to teaching — that's her job.
 
 ---
 
@@ -32,9 +42,9 @@ Each session runs a structured 6-step workflow:
 | Step | What happens |
 | ---- | ------------ |
 | 1. Classify | Identifies the type of work — Feature, Bugfix, Refactor, Integration, or Config/Infra |
-| 2. Inspect | Reads the git diff and touched files directly; never reconstructs assumptions |
-| 3. Teach | Explains the implementation at the depth you need (see modes below) |
-| 4. Summarise | Writes a compact Done / Why / Result / Next card, under 100 words |
+| 2. Inspect | Reads the git diff and touched files directly; never reconstructs from assumptions |
+| 3. Teach | Explains the implementation at the depth you need (see Teaching modes below) |
+| 4. Summarise | Writes a compact Done / Why / Result card, under 100 words |
 | 5. Document | Drafts a feature doc and changelog entry, then asks for your approval before writing |
 | 6. Surface | Flags risks, open questions, rollout concerns, and testing gaps |
 
@@ -44,25 +54,33 @@ Sophia signs off every session with a single focused **Next step** recommendatio
 
 ## Teaching modes
 
-Sophia infers one of three modes from your prompt — she never asks:
+Sophia infers the right mode from your message — she never asks. When the signal is ambiguous, she defaults to **Learn deeply**, because teaching is the point.
 
 | Mode | When | What you get |
 | ---- | ---- | ------------ |
-| **Learn deeply** | "walk me through", "explain", "help me understand the tradeoffs" | Full teaching stack: before/after, named pattern, trade-off (if visible in the diff), mental model, how to spot it again, failure modes, testing lens |
-| **Learn fast** | Short message, casual tone, "quick question" | Compressed: what it does, pattern name, one key risk, brief testing lens |
-| **Capture only** | "just document this", "log this change" | Skips all teaching — goes straight to summary card and docs |
+| **Learn deeply** | "walk me through", "explain", "help me understand the tradeoffs", or any ambiguous prompt | Full teaching stack: what changed and why, named engineering pattern, before/after mental model, trade-off made, how to recognise the pattern again, failure modes, testing lens |
+| **Learn fast** | Short message, casual tone, "quick question" — only when speed is clearly the intent | Compressed: what it does, pattern name, one key risk, one-sentence testing lens |
+| **Capture only** | "just document this", "log this change", "skip the explanation" | Skips all teaching — goes straight to summary card and docs |
 
 ---
 
 ## Evidence discipline
 
-Sophia will not reconstruct a likely implementation when she has no access to your code. If there is no git repo or no files were provided, she asks one clarifying question first:
+Sophia only teaches what she can actually observe. She reads the git diff and source files before writing anything — she does not reconstruct a "likely" implementation from guesswork.
+
+Every response opens with a confidence indicator:
+
+| Indicator | Meaning |
+| --------- | ------- |
+| 🟢 **[HIGH]** | Evidence came directly from the git diff and source files |
+| 🟡 **[MEDIUM]** | Some files read, some inferred from context |
+| 🔴 **[LOW]** | No direct code access — proceeding from your description only |
+
+If Sophia has no access to the codebase, she asks once before continuing:
 
 > *"I don't have access to the codebase or git history for this session. Before continuing, can you share the relevant file(s) or paste the key code?"*
 
-If you explicitly say to proceed from your description only, she will — but marks every inferred detail as unverified and never presents assumptions as facts.
-
-Confidence is shown at the top of each response: 🟢 **[HIGH]** · 🟡 **[MEDIUM]** · 🔴 **[LOW]**
+If you say to proceed anyway, she will — but every inferred detail is marked as unverified and never stated as fact.
 
 ---
 
@@ -80,17 +98,6 @@ You can also pass a specific commit hash or range so Sophia targets the right di
 
 - `"Walk me through abc1234"` — targets a specific commit
 - `"Explain what changed in HEAD~3..HEAD"` — targets a range of commits
-
----
-
-## Tip
-
-This skill works best alongside Claude Code's built-in **Learning output style** (`/config` → Output style → Learning).
-
-- **Learning mode** — keeps you actively coding, drops `TODO(human):` markers into your code, teaches patterns in real time
-- **Sophia (this skill)** — consolidates what you built at stopping points, explains the _why_, names the patterns, produces documentation that survives the session
-
-Learning mode teaches you _while_ you work. Sophia captures and reinforces _what_ you learned.
 
 ---
 
