@@ -1,0 +1,74 @@
+[
+  {
+    "query": "I just added pagination to the user list endpoint — walk me through it",
+    "should_trigger": true
+  },
+  {
+    "query": "walk me through what I just built",
+    "should_trigger": true
+  },
+  {
+    "query": "help me understand the changes I made in my last commit",
+    "should_trigger": true
+  },
+  {
+    "query": "I just fixed a bug where tokens weren't refreshing on 401s. Explain what changed.",
+    "should_trigger": true
+  },
+  {
+    "query": "document this feature",
+    "should_trigger": true
+  },
+  {
+    "query": "just document what I did — I added rate limiting to the gateway",
+    "should_trigger": true
+  },
+  {
+    "query": "Sophia, help me with the auth middleware refactor I just merged",
+    "should_trigger": true
+  },
+  {
+    "query": "I just added a caching layer, help me understand the tradeoffs",
+    "should_trigger": true
+  },
+  {
+    "query": "log this change",
+    "should_trigger": true
+  },
+  {
+    "query": "I refactored the DB pool from singleton to DI. Help me understand what changed.",
+    "should_trigger": true
+  },
+  {
+    "query": "what is the capital of France?",
+    "should_trigger": false
+  },
+  {
+    "query": "fix the bug in my login controller",
+    "should_trigger": false
+  },
+  {
+    "query": "add a new endpoint to my API",
+    "should_trigger": false
+  },
+  {
+    "query": "how do I install dependencies with npm?",
+    "should_trigger": false
+  },
+  {
+    "query": "refactor this function to use async/await",
+    "should_trigger": false
+  },
+  {
+    "query": "write me a unit test for this service",
+    "should_trigger": false
+  },
+  {
+    "query": "what does this regex do?",
+    "should_trigger": false
+  },
+  {
+    "query": "help me debug this stack trace",
+    "should_trigger": false
+  }
+]
